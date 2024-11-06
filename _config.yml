@@ -1,7 +1,9 @@
 title: "Will's Blog"
 email: tvminh.it@gmail.com
-timezone: UTC
+description: >- # Multiline description
+  Personal blog about technology, programming, and software development.
 baseurl: ""
+url: "" # Add your site URL here
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
@@ -15,9 +17,40 @@ feed_update_period: daily
 feed_update_frequency: 1
 markdown: kramdown
 kramdown:
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
-    disable: true
-ganalytics: UA-113961478-1
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# Pagination
+paginate: 30
+paginate_path: "/page/:num/"
+
+# Feed settings
+feed:
+  path: feed.xml
+  posts_limit: 10
+  categories:
+    - Jekyll
+    - tutorial
+
+# SEO settings
+twitter:
+  username: your-twitter-handle
+  card: summary_large_image
+social:
+  name: Will
+  links:
+    - https://twitter.com/your-twitter-handle
+    - https://github.com/your-github-handle
+    - https://linkedin.com/in/your-linkedin-handle
+
+# Analytics
+google_analytics: G-YGVERCPPXP # Replace with G-XXXXXXXXXX for GA4
 
 # Authors
 authors:
@@ -26,28 +59,46 @@ authors:
     display_name: Will
     avatar: 'assets/images/sal.png'
     email: tvminh.it@gmail.com
-    # web: https://www.wowthemes.net/category/jekyll-themes/
-    # twitter: https://twitter.com/wowthemesnet
     description: "Blog's author."
-  # john:
-  #   name: John
-  #   display_name: John
-  #   avatar: 'assets/images/john.png'
-  #   email: wowthemesnet@gmail.com
-  #   web: https://www.wowthemes.net/category/jekyll-themes/
-  #   twitter: https://twitter.com/wowthemesnet
-  #   description: "This is the author box. Write a short description of the author here. You are currently previewing Affiliates theme demo, a Jekyll template compatible with Github pages."
-
-# Social
-# social:
-#   instagram: https://www.instagram.com/bootstrapstarter/
-#   facebook: https://www.facebook.com/bootstrapstartercom-346329609045284
-#   twitter: https://twitter.com/bstartercom
 
 # Plugins
-plugins: 
-- jekyll-paginate
-- jekyll-sitemap
-- jekyll-feed
-- jekyll-seo-tag
-- jekyll-archives
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-compose
+
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: '/category/:name/'
+    tag: '/tag/:name/'
+
+# Exclude files from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - README.md
+  - LICENSE.txt
+
+# Include files
+include:
+  - _pages
+
+# Sass processing
+sass:
+  style: compressed
+  sourcemap: never
