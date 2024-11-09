@@ -176,7 +176,6 @@ Just customize your theme here.
     object-fit: cover;
     margin-bottom: 2rem;
 }
-
 /* Contact Page Styles */
 .contact-container {
     max-width: 800px;
@@ -227,7 +226,6 @@ Just customize your theme here.
 
 .contact-form .btn-primary:hover {
     background-color: #2980b9;
-    transform: translateY(-1px);
 }
 
 .contact-detail-box {
@@ -251,4 +249,68 @@ Just customize your theme here.
 .contact-detail-box p {
     color: #666;
     margin-bottom: 0;
+}
+
+.contact-btn {
+    align-items: center;
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.contact-btn:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+}
+
+.contact-btn:hover:after {
+    transform: translate(0, 0);
+}
+
+.contact-btn:active {
+    background-color: #ffdeda;
+    outline: 0;
+}
+
+.contact-btn:hover {
+    outline: 0;
+    color: #111;
+    text-decoration: none;
+}
+
+.contact-btn i {
+    margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+    .contact-btn {
+        padding: 0 40px;
+    }
 }
