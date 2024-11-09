@@ -6,30 +6,26 @@ background: '/img/bg-index.jpg'
 
 <!-- Home Intro
 ================================================== -->
-{% if page.url == "/" %} 
-<div class="rounded mb-5 hero">
-  <div class="row align-items-center justify-content-between">
-    <div class="col-md-6">
-      <h1 class="font-weight-bold mb-4 serif-font">Will's Blog!</h1>
-      <p class="lead mb-4">Hi there, and welcome to my personal blog! I'm excited to share my thoughts and experiences on all things.</p>
-      <a href="{{site.baseurl}}/about" class="btn btn-dark text-white px-5 btn-lg">About me</a>
-    </div>
-    <div class="col-md-6 text-right pl-0 pl-lg-4">
-      <img class="intro" height="500" src="{{site.baseurl}}/assets/images/intro.svg">      
-    </div>
-  </div>
+<div class="text-center">
+  <h1 class="display-4">Will's Blog! <i class="fas fa-pencil-alt mr-2"></i></h1>
 </div>
-{% endif %}
+
+<hr class="my-5">
+
+<!-- Latest Posts
+================================================== -->
+<h2 class="display-5 text-center mb-5">Latest Posts</h2>
+
 
 <!-- Featured
 ================================================== -->
 <section class="row">
   {% for post in site.posts %}
-      {% if post.featured == true %}
-          <div class="col-md-4 mb-5">
-          {% include postbox.html %}
-          </div>
-      {% endif %}
+  {% if post.featured == true %}
+  <div class="col-md-4 mb-5">
+    {% include postbox.html %}
+  </div>
+  {% endif %}
   {% endfor %}
 </section>
 
@@ -48,6 +44,6 @@ background: '/img/bg-index.jpg'
 <!-- Pagination -->
 <div class="bottompagination">
   <span class="navigation" role="navigation">
-      {% include pagination.html %}
+    {% include pagination.html %}
   </span>
 </div>
