@@ -5,16 +5,15 @@ permalink: "/contact/"
 comments: false
 ---
 
-<form action="https://formspree.io/{{site.email}}" method="POST">    
-<p class="mb-4">Thank you for your interest in getting in touch with us. Please send your message here. We will reply as soon as possible!</p>
-<div class="form-group row">
-<div class="col-md-6">
-<input class="form-control" type="text" name="name" placeholder="Name*" required>
+<div class="contact-container">
+  <div class="contact-info mb-5">
+    <h3>Get in Touch</h3>
+    <p class="lead">Thank you for your interest in getting in touch with us. Click the button below to send me an email directly!</p>
+  </div>
+
+  <div class="text-center">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tvminh.it@gmail.com" target="_blank" class="btn contact-btn">
+      <i class="fas fa-envelope"></i> Send Email
+    </a>
+  </div>
 </div>
-<div class="col-md-6">
-<input class="form-control" type="email" name="_replyto" placeholder="E-mail Address*" required>
-</div>
-</div>
-<textarea rows="8" class="form-control mb-3" name="message" placeholder="Message*" required></textarea>    
-<input class="btn btn-dark" type="submit" value="Send">
-</form>

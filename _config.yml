@@ -9,7 +9,6 @@ logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 author: Will
 paginate: 30
-disqus: 'demowebsite'
 locale: en_us
 lang: en_us
 feed_items: 10
@@ -50,14 +49,14 @@ social:
     - https://linkedin.com/in/your-linkedin-handle
 
 # Analytics
-google_analytics: G-YGVERCPPXP # Replace with G-XXXXXXXXXX for GA4
+google_analytics: G-YGVERCPPXP
 
 # Authors
 authors:
   will:
     name: Will
     display_name: Will
-    avatar: 'assets/images/sal.png'
+    avatar: 'assets/images/will.png'
     email: tvminh.it@gmail.com
     description: "Blog's author."
 
