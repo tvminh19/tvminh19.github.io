@@ -3,4 +3,176 @@ Don't want to use sass and simply modify the stylesheet in the old css fashion?
 Just customize your theme here.
 ================================================== */
 
-body {}
+.article-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.post-content {
+    margin-top: 2rem;
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-content h2, .post-content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a202c;
+}
+
+.post-tags {
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.tag-link {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tag-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Code blocks styling */
+.post-content pre {
+    background: #f8f9fa;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+/* Blockquote styling */
+.post-content blockquote {
+    border-left: 4px solid #3498db;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #555;
+    font-style: italic;
+}
+
+/* Images styling */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+}
+
+/* Previous/Next Navigation */
+.PageNavigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.prev-post, .next-post {
+    max-width: 50%;
+}
+
+.next-post {
+    text-align: right;
+}
+
+.thepostlink {
+    color: #2c3e50;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.thepostlink:hover {
+    color: #3498db;
+}
+
+.thepostlink span {
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+/* Author Box */
+.author-box {
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.author-avatar {
+    flex: 0 0 100px;
+    margin-right: 2rem;
+}
+
+.author-thumb {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info {
+    flex: 1;
+}
+
+.author-name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.author-name a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.btn.follow {
+    padding: 0.25rem 1rem;
+    font-size: 0.9rem;
+    background: #3498db;
+    color: white;
+    border-radius: 20px;
+    transition: background 0.2s ease;
+}
+
+.btn.follow:hover {
+    background: #2980b9;
+    text-decoration: none;
+}
+
+.author-description {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Featured Image styling */
+.featured-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+}
