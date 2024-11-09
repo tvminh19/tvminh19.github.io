@@ -5,33 +5,18 @@ permalink: /privacy-policy/
 comments: false
 ---
 
-### Information that is gathered from visitors
-In common with other websites, log files are stored on the web server saving details such as the visitor's IP address, browser type, referring page and time of visit.
+This Privacy Policy explains how we handle information on our blog website. We respect your privacy and aim to keep your experience secure and transparent.
 
-Cookies may be used to remember visitor preferences when interacting with the website.
+### Information We Collect
+We do not collect personal information, such as names or email addresses, from visitors. However, standard server logs may automatically capture non-personal details, such as IP addresses, browser types, and timestamps, for website functionality and security.
 
-Where registration is required, the visitor's email and a username will be stored on the server.
+### Cookies and Google Analytics
+Our website uses cookies to enhance your experience and may also use Google Analytics to understand how visitors interact with our content. Google Analytics may collect anonymized information, such as the pages you visit, time spent on the site, and the type of device you’re using. This information helps us improve our website content.
 
-### How the Information is used
-The information is used to enhance the vistor's experience when using the website to display personalised content and possibly advertising.
+You can control the use of cookies by adjusting your browser settings. Disabling cookies may affect some features of the website.
 
-E-mail addresses will not be sold, rented or leased to 3rd parties.
+### Third-Party Services
+We do not use third-party advertising services, meaning no ad-based tracking cookies are used on our site.
 
-E-mail may be sent to inform you of news of our services or offers by us or our affiliates.
-
-### Visitor Options
-If you have subscribed to one of our services, you may unsubscribe by following the instructions which are included in e-mail that you receive.
-
-You may be able to block cookies via your browser settings but this may prevent you from access to certain features of the website.
-
-### Cookies
-Cookies are small digital signature files that are stored by your web browser that allow your preferences to be recorded when visiting the website. Also they may be used to track your return visits to the website.
-
-3rd party advertising companies may also use cookies for tracking purposes.
-
-### Google Ads
-Google, as a third party vendor, uses cookies to serve ads.
-
-Google's use of the DART cookie enables it to serve ads to visitors based on their visit to sites they visit on the Internet.
-
-Website visitors may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.
+### Contact
+If you have questions about our privacy practices, please reach out through our website's contact page.
