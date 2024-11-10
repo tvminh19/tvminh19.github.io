@@ -193,7 +193,7 @@ Just customize your theme here.
 
 .contact-form {
     background: #f8f9fa;
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
@@ -230,7 +230,7 @@ Just customize your theme here.
 
 .contact-detail-box {
     background: white;
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     height: 100%;
@@ -338,4 +338,15 @@ Just customize your theme here.
 .btn-small i {
     margin: 0;
     font-size: 1rem;
+}
+
+/* Add hover effect for latest posts */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    padding: 1.5rem; /* Increased padding for card */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
