@@ -350,3 +350,44 @@ Just customize your theme here.
     transform: translateY(-5px); /* Slight lift effect */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
+
+/* Pagination Styles */
+.bottompagination {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.pagination-navigation {
+    display: flex;
+    gap: 0.5em;
+    font-family: Arial, sans-serif;
+}
+
+.page-number, .prev-page, .next-page {
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Black border */
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+    background-color: #fff; /* White background */
+}
+
+.page-number:hover, .prev-page:hover, .next-page:hover {
+    background-color: #000; /* Black background on hover */
+    color: #fff; /* White text on hover */
+}
+
+.current-page {
+    padding: 0.5em 1em;
+    background-color: #000; /* Black background for active page */
+    color: #fff; /* White text for active page */
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.page-dots {
+    padding: 0.5em;
+    color: #666; /* Gray color for dots */
+}

@@ -2,6 +2,7 @@
 title: Home
 layout: default
 background: '/img/bg-index.jpg'
+paginate: 9
 ---
 
 <!-- Home Intro -->
@@ -25,7 +26,7 @@ background: '/img/bg-index.jpg'
 
 <!-- Featured Posts -->
 <section class="row">
-  {% for post in site.posts %}
+  {% for post in paginator.posts %}
   {% if post.featured == true %}
   <div class="col-md-4 mb-5" data-category="{{ post.categories | map: 'slugify' | join: ' ' }}">
     {% include postbox.html %}
@@ -47,30 +48,36 @@ background: '/img/bg-index.jpg'
 
 <!-- Pagination -->
 <div class="bottompagination">
-  <span class="navigation" role="navigation">
-    {% include pagination.html %}
-  </span>
+  <nav class="pagination-navigation" role="navigation">
+    {% if paginator.previous_page %}
+      {% if paginator.page == 2 %}
+        <!-- If the current page is 2, link to the homepage -->
+        <a class="prev-page" href="{{ site.baseurl }}/">&laquo; Previous</a>
+      {% else %}
+        <!-- Otherwise, link to the previous page -->
+        <a class="prev-page" href="{{ site.baseurl }}/page/{{ paginator.previous_page }}/">&laquo; Previous</a>
+      {% endif %}
+    {% endif %}
+
+    {% assign prev_page = paginator.page | minus: 1 %}
+    {% assign next_page = paginator.page | plus: 1 %}
+    {% assign prev2_page = paginator.page | minus: 2 %}
+    {% assign next2_page = paginator.page | plus: 2 %}
+
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <span class="current-page">{{ page }}</span>
+      {% elsif page == 1 or page == paginator.total_pages or page == prev_page or page == next_page %}
+        <a class="page-number" href="{{ site.baseurl }}/page/{{ page }}/">{{ page }}</a>
+      {% elsif page == prev2_page or page == next2_page %}
+        <span class="page-dots">...</span>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <a class="next-page" href="{{ site.baseurl }}/page/{{ paginator.next_page }}/">Next &raquo;</a>
+    {% endif %}
+  </nav>
 </div>
 
-<script>
-  // JavaScript function to filter posts by category
-  function filterCategory(selectedCategory) {
-    const posts = document.querySelectorAll('section.row div[data-category]');
-    posts.forEach(post => {
-      const postCategories = post.getAttribute('data-category').split(' ').filter(Boolean); // Filter out empty strings
-      console.log('Selected Category:', selectedCategory); // Log selected category
-      console.log('Post Categories:', postCategories); // Log post categories
-      if (selectedCategory === '' || postCategories.includes(selectedCategory)) {
-        post.style.display = 'block'; // Show post if it matches the selected category
-      } else {
-        post.style.display = 'none'; // Hide post if it doesn't match
-      }
-    });
-  }
-</script>
 
-<!-- Example of filtering posts by tags -->
-{% assign week_notes_posts = site.posts | filter_posts: "tags", "includes 'week-notes'" %}
-{% for post in week_notes_posts %}
-<h2>{{ post.title }}</h2>
-{% endfor %}
