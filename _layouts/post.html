@@ -96,7 +96,9 @@ post_class: post-template
                 <div class="author-info">
                     <h5 class="author-name">
                         <a target="_blank" href="{{ author.web }}">{{ author.display_name }}</a>
-                        <a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ author.email }}" target="_blank" class="btn contact-btn">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </a>
                     </h5>
                     <p class="author-description">{{ author.description }}</p>						
                 </div>
