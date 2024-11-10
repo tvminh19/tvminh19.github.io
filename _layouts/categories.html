@@ -3,186 +3,22 @@ title: "Categories"
 layout: default
 permalink: "/categories.html"
 ---
-
-<style>
-.category-slider {
-    position: relative;
-    overflow: hidden;
-}
-
-.slider-container {
-    display: flex;
-    transition: transform 0.3s ease;
-    gap: 1rem;
-}
-
-.navigation-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.prev-button {
-    left: 0;
-}
-
-.next-button {
-    right: 0;
-}
-
-.category-section {
-    margin-bottom: 3rem;
-}
-
-.category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.see-all-btn {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: background-color 0.2s;
-}
-
-.see-all-btn:hover {
-    background-color: #0056b3;
-    color: white;
-    text-decoration: none;
-}
-
-.hidden {
-    display: none;
-}
-
-</style>
-
 {% for category in site.categories %}
-<div class="category-section">
-    <div class="category-header">
-        <h4 class="mb-0" id="{{ category[0] | replace: " ","-" }}">
-            <span class="text-capitalize small font-weight-bold">In "{{ category[0] }}"</span>
-        </h4>
-        <a href="#" class="see-all-btn" data-category="{{ category[0] | replace: " ","-" }}">See All</a>
-    </div>
-    
-    <div class="category-slider" data-category="{{ category[0] | replace: " ","-" }}">
-        <button class="navigation-button prev-button" aria-label="Previous">&lt;</button>
-        <button class="navigation-button next-button" aria-label="Next">&gt;</button>
-        
-        <div class="slider-container">
-            {% assign pages_list = category[1] %}
-            {% for post in pages_list %}
-                {% if post.title != null %}
-                    {% if group == null or group == post.group %}
-                    <div class="col-md-4 mb-5 slider-item" style="min-width: 300px; flex-shrink: 0;" data-category="{{ post.categories | map: 'slugify' | join: ' ' }}">
-                        {% include postbox.html %}
-                    </div>
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
-            {% assign pages_list = nil %}
-            {% assign group = nil %}
-        </div>
-    </div>
+<h4 class="mt-5 mb-4 pb-2 border-bottom" id="{{ category[0] | replace: " ","-" }}">
+  <span class="text-capitalize small font-weight-bold">In "{{ category[0] }}"</span>
+</h4>
+<div class="row">
+{% assign pages_list = category[1] %}
+{% for post in pages_list %}
+{% if post.title != null %}
+{% if group == null or group == post.group %}
+<div class="col-md-4 mb-5" data-category="{{ post.categories | map: 'slugify' | join: ' ' }}">
+  {% include postbox.html %}
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+{% assign pages_list = nil %}
+{% assign group = nil %}
 </div>
 {% endfor %}
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize sliders
-    const sliders = document.querySelectorAll('.category-slider');
-    
-    sliders.forEach(slider => {
-        const container = slider.querySelector('.slider-container');
-        const prevBtn = slider.querySelector('.prev-button');
-        const nextBtn = slider.querySelector('.next-button');
-        let scrollPosition = 0;
-        const scrollAmount = 300; // Adjust this value based on your card width
-        
-        // Update button visibility
-        function updateNavigationButtons() {
-            prevBtn.style.display = scrollPosition <= 0 ? 'none' : 'flex';
-            nextBtn.style.display = 
-                scrollPosition >= container.scrollWidth - container.clientWidth 
-                ? 'none' 
-                : 'flex';
-        }
-        
-        // Initialize button visibility
-        updateNavigationButtons();
-        
-        // Previous button click handler
-        prevBtn.addEventListener('click', () => {
-            scrollPosition = Math.max(scrollPosition - scrollAmount, 0);
-            container.style.transform = `translateX(-${scrollPosition}px)`;
-            updateNavigationButtons();
-        });
-        
-        // Next button click handler
-        nextBtn.addEventListener('click', () => {
-            scrollPosition = Math.min(
-                scrollPosition + scrollAmount,
-                container.scrollWidth - container.clientWidth
-            );
-            container.style.transform = `translateX(-${scrollPosition}px)`;
-            updateNavigationButtons();
-        });
-    });
-    
-    // Handle "See All" buttons
-    const seeAllButtons = document.querySelectorAll('.see-all-btn');
-    
-    seeAllButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const categoryId = this.dataset.category;
-            const slider = document.querySelector(`.category-slider[data-category="${categoryId}"]`);
-            const container = slider.querySelector('.slider-container');
-            
-            // Toggle between slider and grid view
-            if (container.style.flexWrap === 'wrap') {
-                // Return to slider view
-                container.style.flexWrap = 'nowrap';
-                container.style.transform = 'translateX(0)';
-                slider.style.overflow = 'hidden';
-                this.textContent = 'See All';
-                
-                // Show navigation buttons
-                slider.querySelectorAll('.navigation-button').forEach(btn => {
-                    btn.classList.remove('hidden');
-                });
-            } else {
-                // Switch to grid view
-                container.style.flexWrap = 'wrap';
-                container.style.transform = 'none';
-                slider.style.overflow = 'visible';
-                this.textContent = 'Show Less';
-                
-                // Hide navigation buttons
-                slider.querySelectorAll('.navigation-button').forEach(btn => {
-                    btn.classList.add('hidden');
-                });
-            }
-        });
-    });
-});
-</script>
