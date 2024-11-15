@@ -4,3 +4,8 @@
 .sass-cache
 _site
 Gemfile.lock
+
+.venv/
+.env
+venv/
+__pycache__/
