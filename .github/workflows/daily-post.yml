@@ -28,15 +28,15 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --local user.email "your-email@example.com"
+          git config --local user.email "tvminh.it@gmail.com"
           git config --local user.name "GitHub Action Bot"
 
       - name: Commit changes
         run: |
-          git add _posts/*.md
+          git add .
           git commit -m "Automated update of markdown posts" || echo "No changes to commit"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}

@@ -1,4 +1,4 @@
 google-generativeai
 python-dotenv
-newspaper3k
+article-parser
 requests
