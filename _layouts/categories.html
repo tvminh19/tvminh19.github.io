@@ -1,24 +1,61 @@
 ---
-title: "Categories"
+title: "Table of Contents"
 layout: default
 permalink: "/categories.html"
 ---
-{% for category in site.categories %}
-<h4 class="mt-5 mb-4 pb-2 border-bottom" id="{{ category[0] | replace: " ","-" }}">
-  <span class="text-capitalize small font-weight-bold">In "{{ category[0] }}"</span>
-</h4>
-<div class="row">
-{% assign pages_list = category[1] %}
-{% for post in pages_list %}
-{% if post.title != null %}
-{% if group == null or group == post.group %}
-<div class="col-md-4 mb-5" data-category="{{ post.categories | map: 'slugify' | join: ' ' }}">
-  {% include postbox.html %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mb-4">Table of Contents</h1>
+            
+            <!-- Category List -->
+            <div class="category-list mb-5">
+                <h4 class="border-bottom pb-2">Categories</h4>
+                <div class="row">
+                    {% for category in site.categories %}
+                    <div class="col-md-3 mb-2">
+                        <a href="#{{ category[0] | slugify }}" class="text-decoration-none">
+                            {{ category[0] }} ({{ category[1].size }})
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Category Contents -->
+            {% for category in site.categories %}
+            <section class="category-section mb-5">
+                <h2 class="border-bottom pb-2" id="{{ category[0] | slugify }}">
+                    {{ category[0] }}
+                </h2>
+                
+                <div class="category-posts">
+                    {% assign posts = category[1] | sort: 'date' | reverse %}
+                    {% for post in posts %}
+                    <div class="post-entry mb-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="text-muted">
+                                    {{ post.date | date: "%B %d, %Y" }}
+                                </span>
+                            </div>
+                            <div class="col-md-9">
+                                <a href="{{ site.baseurl }}{{ post.url }}" class="text-decoration-none">
+                                    {{ post.title }}
+                                </a>
+                                {% if post.description %}
+                                <p class="small text-muted mt-1">
+                                    {{ post.description | truncate: 160 }}
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endfor %}
+        </div>
+    </div>
 </div>
-{% endif %}
-{% endif %}
-{% endfor %}
-{% assign pages_list = nil %}
-{% assign group = nil %}
-</div>
-{% endfor %}
