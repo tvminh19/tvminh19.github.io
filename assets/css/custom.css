@@ -391,3 +391,16 @@ Just customize your theme here.
     padding: 0.5em;
     color: #666; /* Gray color for dots */
 }
+
+.category-section {
+    scroll-margin-top: 2rem;
+}
+.post-entry:hover {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+.category-list {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
