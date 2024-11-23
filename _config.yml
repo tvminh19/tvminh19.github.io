@@ -1,19 +1,37 @@
 title: "Will's Blog"
-email: tvminh.it@gmail.com
-description: >- # Multiline description
-  Personal blog about technology, programming, and software development.
+email: tvminh@duck.com
+description: "Personal blog about technology, programming, and software development."
 baseurl: ""
-url: "" # Add your site URL here
+url: ""
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 author: Will
+
+# Jekyll Admin specific settings - simplified
+jekyll_admin:
+  hidden_links: []
+
+# Pagination settings
 paginate: 9
+paginate_path: "/page/:num/"
+
+# Locale settings
 locale: en_us
 lang: en_us
+
+# Feed settings
 feed_items: 10
 feed_update_period: daily
 feed_update_frequency: 1
+feed:
+  path: feed.xml
+  posts_limit: 10
+  categories:
+    - Jekyll
+    - tutorial
+
+# Markdown settings
 markdown: kramdown
 kramdown:
   syntax_highlighter: rouge
@@ -24,17 +42,6 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
-
-# Pagination
-paginate_path: "/page/:num/"
-
-# Feed settings
-feed:
-  path: feed.xml
-  posts_limit: 10
-  categories:
-    - Jekyll
-    - tutorial
 
 # SEO settings
 twitter:
@@ -67,6 +74,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-archives
   - jekyll-compose
+  - jekyll-admin
 
 # Archives
 jekyll-archives:
@@ -99,4 +107,6 @@ include:
 # Sass processing
 sass:
   style: compressed
-  sourcemap: never
+  sourcemap: development
+
+# ... (rest of the configurations remain the same)
